@@ -1,0 +1,17 @@
+@import url(https://therichpost.com/responsivestyle/index.css);
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+.logo {
+  font-size: 3rem;
+}
+
+app-dashboard {
+  flex-grow: 1 !important;
+  width: 100%;
+}
+app-agents {
+  /* flex-grow: 1 !important; */
+  width: 100%;
+}
+app-nav-bar {
+  width: 100%;
+}
