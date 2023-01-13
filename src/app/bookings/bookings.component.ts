@@ -20,7 +20,7 @@ export class BookingsComponent {
   postList(): void {
     this.usersServices.getAllBookings().subscribe((response) => {
       this.POSTS = response.flightBookings;
-      console.log(response);
+      // console.log(response);
 
       console.log(`hey`);
       console.log(this.POSTS);

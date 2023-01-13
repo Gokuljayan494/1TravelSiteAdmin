@@ -40,6 +40,11 @@ export class UsersService implements HttpInterceptor {
       .get('https://travelsitenode.onrender.com/api/v1/admin/allUsers')
       .pipe(
         map((res: any) => {
+          if ((token = '')) {
+            alert('please login');
+            this.router.navigateByUrl('login');
+          }
+
           return res;
         })
       );
@@ -57,7 +62,31 @@ export class UsersService implements HttpInterceptor {
       .pipe(
         map((res: any) => {
           console.log(`-----------`);
+          // console.log(res);
+          if (!res) {
+            alert('please login');
+            this.router.navigateByUrl('login');
+          }
+
+          return res;
+        })
+      );
+  }
+  dashboard(): Observable<any> {
+    return this.http
+      .get('https://travelsitenode.onrender.com/api/v1/admin/dashboard')
+      .pipe(
+        map((res: any) => {
+          console.log(`-----------`);
           console.log(res);
+          console.log(`*************`);
+          console.log(`*************`);
+          console.log(`*************`);
+          console.log(res);
+          // fail'
+          if (res.status === 'fail' || res.status === '400') {
+            this.router.navigateByUrl('login');
+          }
 
           return res;
         })
