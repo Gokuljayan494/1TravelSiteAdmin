@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
   showNav = false;
+  loggedIn = false;
+
+  login() {
+    // login logic
+    this.loggedIn = true;
+  }
 }

@@ -15,4 +15,10 @@ export class SidebarComponent {
   clickEvent() {
     this.status = !this.status;
   }
+  loggedIn = false;
+
+  login() {
+    // login logic
+    this.loggedIn = true;
+  }
 }

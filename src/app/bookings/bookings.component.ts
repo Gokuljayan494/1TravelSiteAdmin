@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UsersService } from '../users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bookings',
@@ -13,13 +14,18 @@ export class BookingsComponent {
   count: number = 0;
   tableSize: number = 5;
   tableSizes: number = 10;
-  constructor(private usersServices: UsersService) {}
+  constructor(private usersServices: UsersService, private router: Router) {}
   ngOnInit(): void {
     this.postList();
   }
   postList(): void {
     this.usersServices.getAllBookings().subscribe((response) => {
+      if (!response) {
+        alert('please login');
+        this.router.navigateByUrl('');
+      }
       this.POSTS = response.flightBookings;
+
       // console.log(response);
 
       console.log(`hey`);

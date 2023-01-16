@@ -18,9 +18,8 @@ export class UsersComponent {
     this.postList();
   }
   postList(): void {
-    this.usersServices.getAllPosts().subscribe((response) => {
+    this.usersServices.getAllUsers().subscribe((response) => {
       this.POSTS = response.data.users;
-      console.log(response.data.users);
 
       console.log(`hey`);
 

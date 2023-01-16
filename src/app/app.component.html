@@ -1,17 +1,8 @@
-<!-- Banner -->
-
-<!-- Dashboard -->
 <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
-  <!-- Vertical Navbar -->
-  <app-sidebar></app-sidebar>
-  <!-- Main content -->
+  <app-sidebar *ngIf="!isLoginPage"></app-sidebar>
 
-  <!-- <app-dashboard></app-dashboard> -->
   <div class="w-100">
-    <app-nav-bar></app-nav-bar>
+    <app-nav-bar *ngIf="!isLoginPage"></app-nav-bar>
     <router-outlet></router-outlet>
   </div>
-
-  <!-- </div> -->
-  <!-- </div> -->
 </div>

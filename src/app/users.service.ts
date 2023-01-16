@@ -35,25 +35,16 @@ export class UsersService implements HttpInterceptor {
     return next.handle(jwttoken);
   }
 
-  getAllPosts(): Observable<any> {
+  getAllUsers(): Observable<any> {
     return this.http
       .get('https://travelsitenode.onrender.com/api/v1/admin/allUsers')
       .pipe(
         map((res: any) => {
-          if ((token = '')) {
-            alert('please login');
-            this.router.navigateByUrl('login');
-          }
-
           return res;
         })
       );
   }
 
-  ////////////////////
-
-  // bookings
-  // fetchProduct1() {
   getAllBookings(): Observable<any> {
     return this.http
       .get(
@@ -63,10 +54,6 @@ export class UsersService implements HttpInterceptor {
         map((res: any) => {
           console.log(`-----------`);
           // console.log(res);
-          if (!res) {
-            alert('please login');
-            this.router.navigateByUrl('login');
-          }
 
           return res;
         })
@@ -106,12 +93,13 @@ export class UsersService implements HttpInterceptor {
       )
       .subscribe((res) => {
         console.log(res);
+        localStorage.setItem('currentUser', res.token);
         token = res.token;
-        if (res.status === 'sucess') {
-          alert('logged in sucessfully');
-          this.router.navigateByUrl('');
+        if (res) {
+          alert('login sucessfully');
+          this.router.navigateByUrl('dashboard');
         } else {
-          alert(`Error`);
+          this.router.navigateByUrl('');
         }
       });
   }
