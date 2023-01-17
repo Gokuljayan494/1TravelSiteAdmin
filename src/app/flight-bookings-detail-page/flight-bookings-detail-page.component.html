@@ -1,0 +1,111 @@
+<div class="container-fluid">
+  <div class="emp-profile">
+    <form method="post">
+      <div class="row">
+        <div class="col-lg-`6"></div>
+        <div class="col-lg-6">
+          <div class="profile-head">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  id="home-tab"
+                  data-toggle="tab"
+                  href="#home"
+                  role="tab"
+                  aria-controls="home"
+                  aria-selected="true"
+                  >Details</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="home"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+            >
+              <div class="row">
+                <div class="col-md-6">
+                  <label>User Id</label>
+                </div>
+                <div class="col-md-6">
+                  <p>{{ POSTS.user._id }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Name</label>
+                </div>
+                <div class="col-md-6">
+                  <p>{{ POSTS.user.name }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="profile-head">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  id="home-tab"
+                  data-toggle="tab"
+                  href="#home"
+                  role="tab"
+                  aria-controls="home"
+                  aria-selected="true"
+                  >Details</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="home"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+            >
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Booking Id</label>
+                </div>
+                <div class="col-md-6">
+                  <p>{{ POSTS._id }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Name on card</label>
+                </div>
+                <div class="col-md-6">
+                  <p>{{ POSTS.nameOnCard }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>cardNumber</label>
+                </div>
+                <div class="col-md-6">
+                  <p>{{ POSTS.cardNumber }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>flightDetails</label>
+                </div>
+                <div class="col-md-6">
+                  <p>{{ POSTS.flightDetails[0].split(" ").join(",") }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

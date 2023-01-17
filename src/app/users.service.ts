@@ -13,18 +13,20 @@ import { Router } from '@angular/router';
 
 import { HttpHeaders } from '@angular/common/http';
 import { HttpInterceptor } from '@angular/common/http';
-let token = '';
+let token;
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService implements HttpInterceptor {
   constructor(private http: HttpClient, private router: Router) {}
+
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    let token1 = token;
+    token = localStorage.getItem('currentUser');
+    // let token1 = token;
     let jwttoken = req.clone({
       setHeaders: {
         Authorization: `Bearer ${token}`,
@@ -40,6 +42,8 @@ export class UsersService implements HttpInterceptor {
       .get('https://travelsitenode.onrender.com/api/v1/admin/allUsers')
       .pipe(
         map((res: any) => {
+          console.log(res);
+
           return res;
         })
       );
@@ -102,5 +106,57 @@ export class UsersService implements HttpInterceptor {
           this.router.navigateByUrl('');
         }
       });
+  }
+
+  deleteProduct(id: String) {
+    this.http
+      .delete(
+        'https://travelsitenode.onrender.com/api/v1/admin/deleteUser/' + id + ''
+      )
+      .subscribe((data) => {
+        alert(`user deleted`);
+        this.router.navigateByUrl('users');
+      });
+  }
+  getUser(id: String) {
+    console.log(`heyy `);
+
+    return this.http
+      .get(
+        'https://travelsitenode.onrender.com/api/v1/admin/viewUser/' + id + ''
+      )
+      .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
+  }
+
+  deleteBooking(id: String) {
+    this.http
+      .delete(
+        'https://travelsitenode.onrender.com/api/v1/admin/deleteBookings/' +
+          id +
+          ''
+      )
+      .subscribe((data) => {
+        alert(`bookings deleted`);
+        this.router.navigateByUrl('bookings');
+      });
+  }
+  getBookings(id: String) {
+    console.log(`heyy `);
+
+    return this.http
+      .get(
+        'https://travelsitenode.onrender.com/api/v1/admin/userFlightBookingDetails/' +
+          id +
+          ''
+      )
+      .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
   }
 }

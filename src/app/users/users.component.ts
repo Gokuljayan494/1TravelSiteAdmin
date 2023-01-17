@@ -19,7 +19,8 @@ export class UsersComponent {
   }
   postList(): void {
     this.usersServices.getAllUsers().subscribe((response) => {
-      this.POSTS = response.data.users;
+      this.POSTS = response.data.user;
+      console.log(response.data);
 
       console.log(`hey`);
 
@@ -35,4 +36,11 @@ export class UsersComponent {
     this.page = 1;
     this.postList();
   }
+  onDeleteProduct(id: String) {
+    this.usersServices.deleteProduct(id);
+    console.log(`id here ${id}`);
+  }
+  // constructor(route: ActivatedRoute) {
+  //   this.id = route.snapshot.paramMap.get('id');
+  // }
 }

@@ -57,65 +57,23 @@
           <!-- <td>Pollachi</td> -->
 
           <td class="text-end">
-            <a href="#" class="btn btn-sm btn-neutral">Agents</a>
+            <a
+              [routerLink]="['/detailPage', post.id]"
+              class="btn btn-sm btn-neutral"
+              >view</a
+            >
             <button
               type="button"
               class="btn btn-sm btn-square btn-neutral text-danger-hover"
             >
-              <i class="bi bi-trash"></i>
+              <i
+                class="bi bi-trash"
+                type="button"
+                (click)="onDeleteProduct(post.id)"
+              ></i>
             </button>
           </td>
         </tr>
-        <!-- <tr>
-          <td>
-            <a class="text-heading font-semibold" href="#"> #6789271822 </a>
-          </td>
-          <td>
-            <a class="text-heading font-semibold" href="#">Amal</a>
-          </td>
-          <td>Kerala</td>
-
-          <td>
-            <a class="text-heading font-semibold" href="#"> akhil@gmail.com </a>
-          </td>
-          <td><i class="bg-success"></i>90394065</td>
-          <td><i class="bg-success"></i>Ernakulam</td>
-
-          <td class="text-end">
-            <a href="#" class="btn btn-sm btn-neutral">Agents</a>
-            <button
-              type="button"
-              class="btn btn-sm btn-square btn-neutral text-danger-hover"
-            >
-              <i class="bi bi-trash"></i>
-            </button>
-          </td>
-        </tr> -->
-        <!-- <tr>
-          <td>
-            <a class="text-heading font-semibold" href="#"> #6789271821 </a>
-          </td>
-          <td>
-            <a class="text-heading font-semibold" href="#"> stephan</a>
-          </td>
-          <td>Delhi</td>
-          <td>
-            <a class="text-heading font-semibold" href="#">
-              stephan@gmail.com
-            </a>
-          </td>
-          <td>903940242</td>
-          <td><i class="bg-success"></i>guragon</td>
-          <td class="text-end">
-            <a href="#" class="btn btn-sm btn-neutral">Agents</a>
-            <button
-              type="button"
-              class="btn btn-sm btn-square btn-neutral text-danger-hover"
-            >
-              <i class="bi bi-trash"></i>
-            </button>
-          </td>
-        </tr> -->
       </tbody>
     </table>
     <div>
@@ -127,9 +85,4 @@
       </pagination-controls>
     </div>
   </div>
-  <!-- <div class="card-footer border-0 py-5">
-    <span class="text-muted text-sm"
-      >Showing 3 items out of 1 results found</span
-    >
-  </div> -->
 </div>

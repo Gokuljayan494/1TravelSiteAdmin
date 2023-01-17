@@ -33,6 +33,8 @@ import {
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { UsersService } from './users.service';
+import { DetailPageComponent } from './detail-page/detail-page.component';
+import { FlightBookingsDetailPageComponent } from './flight-bookings-detail-page/flight-bookings-detail-page.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { UsersService } from './users.service';
     BookingsComponent,
     NavBarComponent,
     LoginComponent,
+    DetailPageComponent,
+    FlightBookingsDetailPageComponent,
   ],
   imports: [
     BrowserModule,

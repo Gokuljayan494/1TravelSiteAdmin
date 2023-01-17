@@ -48,4 +48,8 @@ export class BookingsComponent {
     this.page = 1;
     this.postList();
   }
+  onDeleteBooking(id: String) {
+    this.usersServices.deleteBooking(id);
+    console.log(`id here ${id}`);
+  }
 }
