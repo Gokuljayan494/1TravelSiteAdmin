@@ -5,6 +5,8 @@ import {
   HttpHandler,
   HttpRequest,
 } from '@angular/common/http';
+import { HttpEventType } from '@angular/common/http';
+
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 // const endpoint = '';
@@ -158,5 +160,50 @@ export class UsersService implements HttpInterceptor {
           return res;
         })
       );
+  }
+
+  uploadVideo(data: { video: File }) {
+    console.log(`---------`);
+
+    this.http
+      .post<any>(
+        'https://travelsitenode.onrender.com/api/v1/admin/uploadVideo',
+        data.video,
+        {
+          reportProgress: true,
+          observe: 'events',
+        }
+      )
+      .subscribe((event) => {
+        if (event.type === HttpEventType.UploadProgress) {
+          // track the progress
+        } else if (event.type === HttpEventType.Response) {
+          // handle the response
+        }
+      });
+  }
+  getVideos(): Observable<any> {
+    return this.http
+      .get('https://travelsitenode.onrender.com/api/v1/admin/getVideo')
+      .pipe(
+        map((res: any) => {
+          console.log(`-----------`);
+          // console.log(res);
+
+          return res;
+        })
+      );
+  }
+  deleteVideos(id: String) {
+    this.http
+      .delete(
+        'https://travelsitenode.onrender.com/api/v1/admin/deleteBookings/' +
+          id +
+          ''
+      )
+      .subscribe((data) => {
+        alert(`bookings deleted`);
+        this.router.navigateByUrl('bookings');
+      });
   }
 }

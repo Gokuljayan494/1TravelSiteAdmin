@@ -31,12 +31,6 @@ export class FlightBookingsDetailPageComponent implements OnInit {
   postList() {
     console.log(this.idValue);
     this.usersServices.getBookings(this.idValue).subscribe((res) => {
-      console.log(`-------`);
-      console.log(`-------`);
-      console.log(`-------`);
-      console.log(`-------`);
-      console.log(`-------`);
-
       console.log(res);
       console.log(res.booking.user);
 

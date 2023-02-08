@@ -35,6 +35,8 @@ import {
 import { UsersService } from './users.service';
 import { DetailPageComponent } from './detail-page/detail-page.component';
 import { FlightBookingsDetailPageComponent } from './flight-bookings-detail-page/flight-bookings-detail-page.component';
+import { VideosComponent } from './videos/videos.component';
+import { NewVideoComponent } from './new-video/new-video.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { FlightBookingsDetailPageComponent } from './flight-bookings-detail-page
     LoginComponent,
     DetailPageComponent,
     FlightBookingsDetailPageComponent,
+    VideosComponent,
+    NewVideoComponent,
   ],
   imports: [
     BrowserModule,

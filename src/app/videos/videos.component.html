@@ -3,7 +3,14 @@
   style="border-radius: 0px"
 >
   <div class="card-header">
-    <h5 class="mb-0">Bookings</h5>
+    <h5 class="mb-0">Videos</h5>
+    <button
+      type="button"
+      class="btn btn-primary buttonClass"
+      routerLink="/newVideo"
+    >
+      Add New
+    </button>
   </div>
   <div class="table-responsive">
     <table class="table table-hover table-nowrap">
@@ -30,12 +37,10 @@
       >
         <tr>
           <td>
-            <a class="text-heading font-semibold" href="#">{{ post.id }} </a>
+            <a class="text-heading font-semibold" href="#">{{ post._id }} </a>
           </td>
           <td>
-            <a class="text-heading font-semibold" href="#"
-              >{{ post.user.name }}
-            </a>
+            <a class="text-heading font-semibold" href="#">{{ post.name }} </a>
           </td>
 
           <td class="text-end">
@@ -51,7 +56,7 @@
               <i
                 class="bi bi-trash"
                 type="button"
-                (click)="onDeleteBooking(post.id)"
+                (click)="deleteVideos(post._id)"
               ></i>
             </button>
           </td>

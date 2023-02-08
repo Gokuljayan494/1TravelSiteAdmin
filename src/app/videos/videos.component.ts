@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-bookings',
-  templateUrl: './bookings.component.html',
-  styleUrls: ['./bookings.component.css'],
+  selector: 'app-videos',
+  templateUrl: './videos.component.html',
+  styleUrls: ['./videos.component.css'],
 })
-export class BookingsComponent {
+export class VideosComponent {
   title = 'pagination';
   POSTS: any;
   page: number = 1;
@@ -19,12 +18,15 @@ export class BookingsComponent {
     this.postList();
   }
   postList(): void {
-    this.usersServices.getAllBookings().subscribe((response) => {
-      if (!response) {
+    this.usersServices.getVideos().subscribe((response) => {
+      if (response.status === 'fail') {
         alert('please login');
         this.router.navigateByUrl('');
       }
-      this.POSTS = response.flightBookings;
+
+      console.log(response);
+
+      this.POSTS = response.videos;
 
       // console.log(response);
 
@@ -42,7 +44,7 @@ export class BookingsComponent {
     this.page = 1;
     this.postList();
   }
-  onDeleteBooking(id: String) {
+  deleteVideos(id: String) {
     this.usersServices.deleteBooking(id);
     console.log(`id here ${id}`);
   }
