@@ -64,17 +64,21 @@ export class UsersService implements HttpInterceptor {
     });
   }
   getAllUsers(): Observable<any> {
-    return this.http.get('http://127.0.0.1:3000/api/v1/admin/allUsers').pipe(
-      map((res: any) => {
-        console.log(res);
+    return this.http
+      .get('https://travelsitenode.onrender.com/api/v1/admin/allUsers')
+      .pipe(
+        map((res: any) => {
+          console.log(res);
 
-        return res;
-      })
-    );
+          return res;
+        })
+      );
   }
   getAllAgents(): Observable<any> {
     return this.http
-      .get('http://127.0.0.1:3000/api/v1/admin/totalRegisteredAgents')
+      .get(
+        'https://travelsitenode.onrender.com/api/v1/admin/totalRegisteredAgents'
+      )
       .pipe(
         map((res: any) => {
           console.log(res);
@@ -86,7 +90,9 @@ export class UsersService implements HttpInterceptor {
 
   getAllBookings(): Observable<any> {
     return this.http
-      .get('http://127.0.0.1:3000/api/v1/admin/flightBookingDetails')
+      .get(
+        'https://travelsitenode.onrender.com/api/v1/admin/flightBookingDetails'
+      )
       .pipe(
         map((res: any) => {
           console.log(`-----------`);
@@ -97,22 +103,24 @@ export class UsersService implements HttpInterceptor {
       );
   }
   dashboard(): Observable<any> {
-    return this.http.get('http://127.0.0.1:3000/api/v1/admin/dashboard').pipe(
-      map((res: any) => {
-        console.log(`-----------`);
-        console.log(res);
-        console.log(`*************`);
-        console.log(`*************`);
-        console.log(`*************`);
-        console.log(res);
-        // fail'
-        if (res.status === 'fail' || res.status === '400') {
-          this.router.navigateByUrl('login');
-        }
+    return this.http
+      .get('https://travelsitenode.onrender.com/api/v1/admin/dashboard')
+      .pipe(
+        map((res: any) => {
+          console.log(`-----------`);
+          console.log(res);
+          console.log(`*************`);
+          console.log(`*************`);
+          console.log(`*************`);
+          console.log(res);
+          // fail'
+          if (res.status === 'fail' || res.status === '400') {
+            this.router.navigateByUrl('login');
+          }
 
-        return res;
-      })
-    );
+          return res;
+        })
+      );
   }
   onLogin(data: any) {
     console.log(`---------`);
@@ -122,7 +130,7 @@ export class UsersService implements HttpInterceptor {
 
     // console.log(products);
     this.http
-      .post<any>('http://127.0.0.1:3000/api/v1/admin/login', data)
+      .post<any>('https://travelsitenode.onrender.com/api/v1/admin/login', data)
       .subscribe((res) => {
         console.log(res);
         console.log(`--`);
@@ -144,7 +152,9 @@ export class UsersService implements HttpInterceptor {
 
   deleteProduct(id: String) {
     this.http
-      .delete('http://127.0.0.1:3000/api/v1/admin/deleteUser/' + id + '')
+      .delete(
+        'https://travelsitenode.onrender.com/api/v1/admin/deleteUser/' + id + ''
+      )
       .subscribe((data) => {
         alert(`user deleted`);
         this.router.navigateByUrl('users');
@@ -152,7 +162,11 @@ export class UsersService implements HttpInterceptor {
   }
   agentActivate(id: string) {
     this.http
-      .delete('http://127.0.0.1:3000/api/v1/admin/activateAgency/' + id + '')
+      .delete(
+        'https://travelsitenode.onrender.com/api/v1/admin/activateAgency/' +
+          id +
+          ''
+      )
       .subscribe((data) => {
         this.data1 = data;
         console.log(this.data1);
@@ -171,7 +185,9 @@ export class UsersService implements HttpInterceptor {
 
   getAllactivatedAgents(): Observable<any> {
     return this.http
-      .get('http://127.0.0.1:3000/api/v1/admin/getActivatedAgents')
+      .get(
+        'https://travelsitenode.onrender.com/api/v1/admin/getActivatedAgents'
+      )
       .pipe(
         map((res: any) => {
           // console.log(res);
@@ -184,7 +200,9 @@ export class UsersService implements HttpInterceptor {
     console.log(`heyy `);
 
     return this.http
-      .get('http://127.0.0.1:3000/api/v1/admin/viewUser/' + id + '')
+      .get(
+        'https://travelsitenode.onrender.com/api/v1/admin/viewUser/' + id + ''
+      )
       .pipe(
         map((res: any) => {
           return res;
@@ -194,7 +212,11 @@ export class UsersService implements HttpInterceptor {
 
   deleteBooking(id: String) {
     this.http
-      .delete('http://127.0.0.1:3000/api/v1/admin/deleteBookings/' + id + '')
+      .delete(
+        'https://travelsitenode.onrender.com/api/v1/admin/deleteBookings/' +
+          id +
+          ''
+      )
       .subscribe((data) => {
         alert(`bookings deleted`);
         this.router.navigateByUrl('bookings');
@@ -205,7 +227,9 @@ export class UsersService implements HttpInterceptor {
 
     return this.http
       .get(
-        'http://127.0.0.1:3000/api/v1/admin/userFlightBookingDetails/' + id + ''
+        'https://travelsitenode.onrender.com/api/v1/admin/userFlightBookingDetails/' +
+          id +
+          ''
       )
       .pipe(
         map((res: any) => {
@@ -218,10 +242,14 @@ export class UsersService implements HttpInterceptor {
     console.log(`---------`);
 
     this.http
-      .post<any>('http://127.0.0.1:3000/api/v1/admin/uploadVideo', data.video, {
-        reportProgress: true,
-        observe: 'events',
-      })
+      .post<any>(
+        'https://travelsitenode.onrender.com/api/v1/admin/uploadVideo',
+        data.video,
+        {
+          reportProgress: true,
+          observe: 'events',
+        }
+      )
       .subscribe((event) => {
         if (event.type === HttpEventType.UploadProgress) {
           // track the progress
@@ -231,18 +259,24 @@ export class UsersService implements HttpInterceptor {
       });
   }
   getVideos(): Observable<any> {
-    return this.http.get('http://127.0.0.1:3000/api/v1/admin/getVideo').pipe(
-      map((res: any) => {
-        console.log(`-----------`);
-        // console.log(res);
+    return this.http
+      .get('https://travelsitenode.onrender.com/api/v1/admin/getVideo')
+      .pipe(
+        map((res: any) => {
+          console.log(`-----------`);
+          // console.log(res);
 
-        return res;
-      })
-    );
+          return res;
+        })
+      );
   }
   deleteVideos(id: String) {
     this.http
-      .delete('http://127.0.0.1:3000/api/v1/admin/deleteBookings/' + id + '')
+      .delete(
+        'https://travelsitenode.onrender.com/api/v1/admin/deleteBookings/' +
+          id +
+          ''
+      )
       .subscribe((data) => {
         alert(`bookings deleted`);
         this.router.navigateByUrl('bookings');
