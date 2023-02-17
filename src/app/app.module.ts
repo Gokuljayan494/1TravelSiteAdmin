@@ -23,6 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { CommonModule } from '@angular/common';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
@@ -37,6 +39,8 @@ import { DetailPageComponent } from './detail-page/detail-page.component';
 import { FlightBookingsDetailPageComponent } from './flight-bookings-detail-page/flight-bookings-detail-page.component';
 import { VideosComponent } from './videos/videos.component';
 import { NewVideoComponent } from './new-video/new-video.component';
+import { ActivatedAgentsComponent } from './activated-agents/activated-agents.component';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -52,8 +56,12 @@ import { NewVideoComponent } from './new-video/new-video.component';
     FlightBookingsDetailPageComponent,
     VideosComponent,
     NewVideoComponent,
+    ActivatedAgentsComponent,
+    PopupComponent,
   ],
   imports: [
+    CommonModule,
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

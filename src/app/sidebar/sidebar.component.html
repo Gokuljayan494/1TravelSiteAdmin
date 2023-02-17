@@ -57,26 +57,57 @@
             <i class="bi bi-house"></i> Dashboard
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="agents">
-            <i class="bi bi-bar-chart"></i> Agents
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="users">
-            <i class="bi bi-people"></i> Users
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="bookings">
-            <i class="bi bi-bookmarks"></i> Bookings
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="videos">
-            <i class="bi bi-camera-video"></i> Videos
-          </a>
-        </li>
+        <div>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="">
+              <span class="d-block text-muted"
+                ><i class="bi bi-people"></i> Agents</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="agents"> Registered Agents </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="activatedAgents">
+              Activated Agents
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="agents"> Bookings </a>
+          </li>
+        </div>
+        <div>
+          <ul class="navbar-nav small-font">
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="">
+                <span class="d-block text-muted"
+                  ><i class="bi bi-person"></i> Users</span
+                >
+              </a>
+            </li>
+            <!-- <div class="container"> -->
+            <li class="nav-item">
+              <a class="nav-link fontText" routerLink="users"> Users </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fontText" routerLink="bookings"> Bookings </a>
+            </li>
+          </ul>
+        </div>
+        <!-- </div> -->
+        <div class="">
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="">
+              <span class="d-block text-muted">CMS</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="videos">
+              <i class="bi bi-camera-video"></i> Videos
+            </a>
+          </li>
+        </div>
       </ul>
       <!-- Divider -->
       <hr class="navbar-divider my-5 opacity-20" />

@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { UsersService } from '../users.service';
 
 @Component({
-  selector: 'app-agents',
-  templateUrl: './agents.component.html',
-  styleUrls: ['./agents.component.css'],
+  selector: 'app-activated-agents',
+  templateUrl: './activated-agents.component.html',
+  styleUrls: ['./activated-agents.component.css'],
 })
-export class AgentsComponent {
+export class ActivatedAgentsComponent {
   title = 'pagination';
   POSTS: any;
   page: number = 1;
@@ -18,13 +18,12 @@ export class AgentsComponent {
     this.postList();
   }
   postList(): void {
-    this.usersServices.getAllAgents().subscribe((response) => {
+    this.usersServices.getAllactivatedAgents().subscribe((response) => {
+      console.log(response);
+
       this.POSTS = response.agent;
-      console.log(this.POSTS);
 
-      console.log(response.data);
-
-      console.log(`hey`);
+      // console.log(`hey`);
 
       // console.log(this.POSTS);
     });
@@ -42,7 +41,7 @@ export class AgentsComponent {
     this.usersServices.deleteProduct(id);
     console.log(`id here ${id}`);
   }
-  onActivate(id: string) {
-    this.usersServices.agentActivate(id);
-  }
+  // constructor(route: ActivatedRoute) {
+  //   this.id = route.snapshot.paramMap.get('id');
+  // }
 }

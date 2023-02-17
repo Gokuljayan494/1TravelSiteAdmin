@@ -3,6 +3,12 @@
   top: 0;
   width: 100%;
 }
+.fontText {
+  font-size: 0.9px;
+}
+.small-font {
+  font-size: 0.9rem; /* adjust the font size as needed */
+}
 /* body {
   overflow-x: hidden;
 } */
